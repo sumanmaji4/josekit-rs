@@ -84,7 +84,7 @@ impl JwtContext {
                 }
             }
 
-            let payload_bytes  = if payload.claims_set().is_empty() {
+            let payload_bytes  = if payload.claims_set().is_empty() && cfg!(feature = "empty-str-for-empty-jwt-payload") {
                 Vec::new()
             } else {
                 serde_json::to_vec(payload.claims_set()).unwrap()

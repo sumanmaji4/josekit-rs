@@ -15,6 +15,7 @@ edition = "2021"
 [features]
 default = []
 vendored = ["openssl/vendored"]
+empty-str-for-empty-jwt-payload = []
 
 [dependencies]
 thiserror = "1"
